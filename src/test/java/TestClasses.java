@@ -27,8 +27,6 @@ public class TestClasses {
 
     @BeforeClass
     public void setUp() {
-        // Укажите путь к ChromeDriver
-        //System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.mts.by");
