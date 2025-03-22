@@ -81,7 +81,7 @@ public class TestClasses {
         if (continueButton.isDisplayed() && continueButton.isEnabled()) {
             continueButton.click();
         } else {
-            System.out.println("Кнопка не видима или недоступна для взаимодействия");
+            Assert.assertTrue(false,"Кнопка не видима или недоступна для взаимодействия");
         }
 
         WebElement iframe = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("iframe.bepaid-iframe")));
