@@ -86,9 +86,11 @@ public class TestClasses {
 
         WebElement iframe = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("iframe.bepaid-iframe")));
 
-        if (!iframe.isDisplayed() || !iframe.getAttribute("src").equals("https://checkout.bepaid.by/widget_v2/index.html")) {
-            Assert.assertFalse(true, "Iframe не открыт или URL не соответствует.");
-        }
+        Assert.assertTrue(iframe.isDisplayed(), "Iframe не отображается на странице.");
+
+        String expectedSrc = "https://checkout.bepaid.by/widget_v2/index.html";
+        String actualSrc = iframe.getAttribute("src");
+        Assert.assertEquals(actualSrc, expectedSrc, "URL iframe не соответствует ожидаемому.");
     }
 
     @AfterClass
