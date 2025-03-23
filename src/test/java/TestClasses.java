@@ -87,11 +87,9 @@ public class TestClasses {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement continueButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='pay__forms']//form[contains(@class, 'pay-form') and contains(@class, 'opened')]//button[contains(@class, 'button__default') and text()='Продолжить']")));
         wait.until(ExpectedConditions.elementToBeClickable(continueButton));
-        if (continueButton.isDisplayed() && continueButton.isEnabled()) {
-            continueButton.click();
-        } else {
-            Assert.assertTrue(false,"Кнопка не видима или недоступна для взаимодействия");
-        }
+
+        Assert.assertTrue(continueButton.isDisplayed() || continueButton.isEnabled(),"Кнопка не видима или недоступна для взаимодействия");
+        continueButton.click();
 
         WebElement iframe = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("iframe.bepaid-iframe")));
 
