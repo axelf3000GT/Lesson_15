@@ -30,6 +30,15 @@ public class TestClasses {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.mts.by");
+
+        List<WebElement> agreeButton = getAgreeButton();
+        if (!agreeButton.isEmpty()) {
+            agreeButton.get(0).click();
+        }
+    }
+
+    public List<WebElement> getAgreeButton() {
+        return driver.findElements(By.xpath("//button[contains(text(), 'Принять')]"));
     }
 
     @Test(priority = 1)
